@@ -27,3 +27,31 @@ output = replicate.run(
 - ランタイム
     - "Describe the difference between apples and oranges?"といった短い文章でも30秒近くかかる
     - 要約とかになると1レスポンスで50秒近くかかる
+
+# deepl API
+
+- [DeepL](https://www.deepl.com/ja/pro-api?cta=header-pro-api)からアカウント作成、API利用登録を済ませると利用できるようになる
+
+e.g.
+```sh
+curl -X POST 'https://api-free.deepl.com/v2/translate' \
+--header 'Authorization: DeepL-Auth-Key [yourAuthKey]' \
+--header 'Content-Type: application/json' \
+--data '{
+  "text": [
+    "Hello, world!"
+  ],
+  "target_lang": "DE"
+}'
+```
+
+```sh
+{
+  "translations": [
+    {
+      "detected_source_language": "EN",
+      "text": "Hallo, Welt!"
+    }
+  ]
+}
+```
